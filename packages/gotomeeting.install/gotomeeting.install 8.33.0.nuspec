@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>gotomeeting.install</id>
+    <version>8.33.0</version>
+    <title>GoToMeeting</title>
+    <authors>Citrix Systems</authors>
+    <owners>David Winslow</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://esign.citrixonline.com/CitrixOnline/Production/Global_TOS_JAN2016.html</licenseUrl>
+    <projectUrl>http://www.gotomeeting.com/</projectUrl>
+    <iconUrl>https://raw.github.com/gildas/nugetpackages/master/gotomeeting/gotomeeting.png</iconUrl>
+    <description>GoToMeeting is a conferencing and online meeting tool.</description>
+    <summary>GotoMeeting - Online Meetings Made Easy</summary>
+    <releaseNotes>https://github.com/gildas/nugetpackages/tree/master/gotomeeting/ChangeLog.md</releaseNotes>
+    <copyright>Citrix Online, LLC</copyright>
+    <tags>gotomeeting conference meeting admin trial</tags>
+  </metadata>
+  <files>
+    <file src="tools\chocolateyInstall.ps1" target="tools\chocolateyInstall.ps1" />
+  </files>
+</package>

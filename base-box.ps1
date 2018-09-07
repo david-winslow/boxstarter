@@ -69,9 +69,10 @@ $Boxstarter.AutoLogin=$true
 
 
 function executeScript {
-	Param ([string]$script)
+    Param ([string]$script)
+    $finalBaseHelperUri = "https://raw.githubusercontent.com/davidfromdenmark/boxstarter/master/scripts"
     write-host "executing $finalBaseHelperUri/$script ..."
-	iex ((new-object net.webclient).DownloadString("https://raw.githubusercontent.com/davidfromdenmark/boxstarter/master/scripts/$script"))
+	Invoke-Expression ((new-object net.webclient).DownloadString("$finalBaseHelperUri/$script"))
 }
 
 function InstallChocoApps($packageArray){

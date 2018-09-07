@@ -71,7 +71,7 @@ $Boxstarter.AutoLogin=$true
 function executeScript {
 	Param ([string]$script)
     write-host "executing $finalBaseHelperUri/$script ..."
-	iex ((new-object net.webclient).DownloadString("https://github.com/davidfromdenmark/boxstarter/tree/master/scripts/$script"))
+	iex ((new-object net.webclient).DownloadString("https://raw.githubusercontent.com/davidfromdenmark/boxstarter/master/scripts/$script"))
 }
 
 function InstallChocoApps($packageArray){
@@ -170,6 +170,8 @@ function PinToTaskBar()
 }
 
 # -------------START--------------
+
+
 Write-BoxstarterMessage "-------------START--------------"
 SetRegionalSettings
 Write-BoxstarterMessage "Windows update..."

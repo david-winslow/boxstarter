@@ -63,9 +63,7 @@ $devApps = @(
 
 
 
-$Boxstarter.RebootOk=$true
-$Boxstarter.NoPassword=$false
-$Boxstarter.AutoLogin=$true
+
 
 
 function executeScript {
@@ -171,12 +169,14 @@ function PinToTaskBar()
 }
 
 # -------------START--------------
-
+$Boxstarter.RebootOk=$true
+$Boxstarter.NoPassword=$false
+$Boxstarter.AutoLogin=$true
 
 Write-BoxstarterMessage "-------------START--------------"
 SetRegionalSettings
 Write-BoxstarterMessage "Windows update..."
-InstallWindowsUpdate
+# InstallWindowsUpdate
 choco feature enable --name=allowGlobalConfirmation
 
 

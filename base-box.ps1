@@ -18,7 +18,7 @@ $coreApps = @(
 
 $devApps = @(
         'fiddler'
-        ,'docker'
+        ,'docker-for-windows'
         ,'wsl'
         ,'sysinternals'
         ,'microsoft-teams'
@@ -57,6 +57,7 @@ $devApps = @(
         ,'visualstudio2017-workload-node'
         ,'visualstudio2017-workload-webcrossplat'
         ,'resharper'
+        ,'resharper-platform'
         ,'visualstudio2017buildtools'
 
     )
@@ -101,15 +102,11 @@ function InstallWindowsUpdate()
 
 
 
-function InstallVisualStudio()
-{
-    choco install visualstudio2017professional --package-parameters "--allWorkloads --includeRecommended --passive --locale en-US"
-}
-
-function InstallInternetInformationServices()
+function InstallWindowsFeatures()
 {
     $windowsFeatures = @(
         'Windows-Identity-Foundation'
+        ,'Microsoft-Hyper-V-All'
         ,'Microsoft-Windows-Subsystem-Linux'
         ,'IIS-WebServerRole'
         ,'IIS-WebServer'
@@ -184,14 +181,13 @@ choco feature enable --name=allowGlobalConfirmation
 executeScript "SystemConfiguration.ps1";
 executeScript "FileExplorerSettings.ps1";
 executeScript "RemoveDefaultApps.ps1";
-executeScript "VirtualizationTools.ps1";
 
 Write-BoxstarterMessage "Starting chocolatey installs"
+InstallWindowsFeatures
+
 InstallChocoApps $coreApps
 InstallChocoApps $devApps
 
-InstallVisualStudio
-InstallInternetInformationServices
 CleanDesktopShortcuts
 PinToTaskBar
 

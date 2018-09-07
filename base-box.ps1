@@ -1,7 +1,7 @@
 $coreApps = @(
     'chocolatey'
     ,'vlc'
-    ,'jre8'
+    ,'jdk8'
     ,'adobereader-update'
     ,'googlechrome'
     ,'opera'
@@ -11,7 +11,6 @@ $coreApps = @(
     ,'dropbox'
     ,'youtube-dl'
     ,'googledrive'
-    ,'gotomeeting'
     ,'icloud'
 
 )
@@ -31,7 +30,6 @@ $devApps = @(
         ,'nodejs.install'
         ,'ilspy'
         ,'7zip.install'
-        ,'sql-server-management-studio'
         ,'beyondcompare'
         ,'postman'
         ,'git.install'
@@ -39,6 +37,8 @@ $devApps = @(
         ,'sourcetree'
         ,'sysinternals'
         ,'sourcetree'
+        ,'sql-server-2017'
+        ,'sql-server-management-studio'
         
         # dotnet specific
 
@@ -59,7 +59,6 @@ $devApps = @(
         ,'resharper'
         ,'resharper-platform'
         ,'visualstudio2017buildtools'
-
     )
 
 

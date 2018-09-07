@@ -7,7 +7,7 @@ Disable-UAC
 function executeScript {
     Param ([string]$script)
     write-host "executing $finalBaseHelperUri/$script ..."
-    iex ((new-object net.webclient).DownloadString("$finalBaseHelperUri/$script"))
+    Invoke-Expression ((new-object net.webclient).DownloadString("$finalBaseHelperUri/$script"))
 }
 
 # see if we can't get calling URL somehow, that would eliminate this need

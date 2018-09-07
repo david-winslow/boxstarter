@@ -40,6 +40,7 @@ $devApps = @(
         ,'postman'
         ,'github'
         ,'sourcetree'
+        ,'sysinternals'
         
         # dotnet specific
 
@@ -69,15 +70,7 @@ $Boxstarter.NoPassword=$false
 $Boxstarter.AutoLogin=$true
 
 
-function ConfigureBaseSettings()
-{
-    Update-ExecutionPolicy -Policy Unrestricted
-    Set-CornerNavigationOptions -EnableUsePowerShellOnWinX
-    Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -DisableShowProtectedOSFiles -EnableShowFileExtensions -EnableShowFullPathInTitleBar
-    Set-TaskbarOptions -Combine Never
-    
-    Start-Process 'powercfg.exe' -Verb runAs -ArgumentList '/h off'     # Disable hibernate
-}
+
 
 function InstallChocoApps($packageArray){
 
@@ -88,7 +81,6 @@ function InstallChocoApps($packageArray){
 }
 
 function SetRegionalSettings(){
-    #http://stackoverflow.com/questions/4235243/how-to-set-timezone-using-powershell
     &"$env:windir\system32\tzutil.exe" /s "South Africa Standard Time"
     
     Set-ItemProperty -Path "HKCU:\Control Panel\International" -Name sShortDate     -Value dd-MMM-yy
@@ -200,7 +192,7 @@ InstallWindowsUpdate
 # disable chocolatey default confirmation behaviour (no need for --yes)
 choco feature enable --name=allowGlobalConfirmation
 
-ConfigureBaseSettings
+
 
 Write-BoxstarterMessage "Starting chocolatey installs"
 
@@ -223,4 +215,4 @@ PinToTaskBar
 Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/neutmute/nm-boxstarter/master/win10-clean.ps1
 
 Write-Host "Follow extra optional cleanup steps in win10-clean.ps1"
-start win10-clean.ps1
+Start-Process win10-clean.ps1
